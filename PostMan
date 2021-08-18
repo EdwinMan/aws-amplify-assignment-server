@@ -1,0 +1,244 @@
+
+// Register a User that Exsits
+URL: http://localhost:5000/api/v1/auth/register
+Method: POST
+Data: {
+    "email": "omar.mansour.info@gmail.com",
+    "password": "omar",
+    "firstName":"omar",
+    "lastName":"mansour"
+}
+Response: {
+    "Conflict": true,
+    "message": "User Already Exists"
+}
+
+----------------------------------------------------
+
+// Register a User
+URL: http://localhost:5000/api/v1/auth/register
+Method: POST
+Data: {
+    "email": "ali@zerandone",
+    "password": "ali",
+    "firstName":"ali",
+    "lastName":"ali"
+}
+Response: {
+    "success": true,
+    "data": {
+        "isVerified": false,
+        "profilePic": "",
+        "_id": "611d009a47137f1efc3510f1",
+        "firstName": "ali",
+        "lastName": "ali",
+        "email": "ali@zerandone",
+        "emailToken": "6f03239595872e5803ccf88c34e0b3a5a169989f3b6159d792b66b5fd4fddbbb113520a033fc8528001a6e5292806b4ba71dae5754146fbe601a58875dcc6d7b",
+        "password": "$2b$10$rMQ0ZJGvpkeFefwX1V/LHO778Yz0oNnB0GCPqLymBmPkUO7Q5JTG2"
+    }
+}
+
+----------------------------------------------------
+
+// Login a User
+URL: http://localhost:5000/api/v1/auth/login
+Method: POST
+Data: {
+    "email": "ali@zerandone",
+    "password": "ali"
+}
+Response: {
+    "success": false,
+    "message": "Account Not Activated"
+}
+----------------------------------------------------
+
+// Activating User Account
+URL: http://localhost:5000/api/v1/auth/verify-email
+Method: GET
+Data: http://localhost:5000/api/v1/auth/verify-email?token=beb70f4d1b612e073a7b8e4923de6499bee66dbbdcd5dbbc50e8d8552dca015b1ba4f2cdba50ee69404b3df1fc6c0178ed1339878ec08dae3cb9bae22de1eb04
+Response: {
+    "success": true
+}
+----------------------------------------------------
+
+// Login User
+URL: http://localhost:5000/api/v1/auth/Login
+Method: GET
+Data: {
+    "email": "omar.mansour.info@gmail.com",
+    "password": "omar"
+}
+Response: {
+    "success": true,
+    "data": {
+        "isVerified": true,
+        "profilePic": "",
+        "_id": "611ba623c7c63637544625f9",
+        "firstName": "omar",
+        "lastName": "mansour",
+        "email": "omar.mansour.info@gmail.com",
+        "emailToken": "",
+        "createdAt": "2021-08-17T12:05:55.139Z",
+        "updatedAt": "2021-08-17T12:06:20.312Z",
+        "__v": 0
+    }
+}
+
+----------------------------------------------------
+
+// Get All Post to View
+URL: 18.220.118.126/api/v1/post
+Method: GET
+Response: {
+    "data": [
+        {
+            "hidden": false,
+            "comments": [
+                {
+                    "_id": "611ba6fac7c6363754462608",
+                    "AuthorID": "611ba623c7c63637544625f9",
+                    "Author": "omar mansour",
+                    "text": "Omar is Here"
+                },
+                {
+                    "_id": "611bec7f285e9f3c10c30077",
+                    "AuthorID": "611bddaa285e9f3c10c2fff9",
+                    "Author": "obieda mansour",
+                    "text": "Obieda is Here"
+                }
+            ],
+            "_id": "611ba688c7c6363754462601",
+            "Author": "611ba623c7c63637544625f9",
+            "AuthorName": "omar mansour",
+            "title": "Google",
+            "text": "Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware.",
+            "createdAt": "2021-08-17T12:07:36.293Z",
+            "updatedAt": "2021-08-17T17:06:07.647Z",
+            "__v": 0
+        },
+        {
+            "hidden": true,
+            "comments": [],
+            "_id": "611ba6c1c7c6363754462603",
+            "Author": "611ba623c7c63637544625f9",
+            "AuthorName": "omar mansour",
+            "title": "Google2",
+            "text": "Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware.",
+            "createdAt": "2021-08-17T12:08:33.554Z",
+            "updatedAt": "2021-08-17T12:14:47.407Z",
+            "__v": 0
+        },
+        {
+            "hidden": false,
+            "comments": [
+                {
+                    "_id": "611be2af285e9f3c10c30020",
+                    "AuthorID": "611bddaa285e9f3c10c2fff9",
+                    "Author": "obieda mansour",
+                    "text": "Oh Well Done My friend."
+                }
+            ],
+            "_id": "611ba6e2c7c6363754462605",
+            "Author": "611ba623c7c63637544625f9",
+            "AuthorName": "omar mansour",
+            "title": "Google3",
+            "text": "Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware.",
+            "createdAt": "2021-08-17T12:09:06.274Z",
+            "updatedAt": "2021-08-17T16:24:15.876Z",
+            "__v": 0
+        },
+        {
+            "hidden": false,
+            "comments": [],
+            "_id": "611be28c285e9f3c10c30018",
+            "Author": "611bddaa285e9f3c10c2fff9",
+            "AuthorName": "obieda mansour",
+            "title": "My First Post",
+            "text": "Start by Introducing Yourself. ...\nWhat's Your Voice? ...\nLink to Your Social Pages. ...\nProofread, proofread, proofread! ...\nAdd Images, Video, and Interactive Content. ...\nEncourage Comments and Feedback. ...",
+            "createdAt": "2021-08-17T16:23:40.538Z",
+            "updatedAt": "2021-08-17T16:23:40.538Z",
+            "__v": 0
+        }
+    ]
+}
+
+/
+----------------------------------------------------
+
+// Create Post By User
+URL: http://localhost:5000/api/v1/post/
+Method: Post
+Data: {
+    "Author": "611ba623c7c63637544625f9",
+    "AuthorName": "Omar Mansour",
+    "title": "title 1",
+    "text": "Post1",
+    "hidden": false
+}
+Response: {
+    "success": true,
+    "data": {
+    "hidden": false,
+    "comments": [],
+    "_id": "611d042ca43a083418270c3e",
+    "Author": "611ba623c7c63637544625f9",
+    "AuthorName": "Omar Mansour",
+    "title": "title 1",
+    "text": "Post1"
+  }
+}
+
+----------------------------------------------------
+
+// Delete Post By User
+URL: http://localhost:5000/api/v1/post/611ba688c7c6363754462601
+Method: Delete
+
+Response: {
+    "success": true,
+    "DeletedID": "611ba688c7c6363754462601"
+  }
+}
+
+----------------------------------------------------
+
+// Delete Post By User
+URL: http://localhost:5000/api/v1/post/611ba688c7c6363754462601
+Method: Delete
+
+Response: {
+    "success": true,
+    "DeletedID": "611ba688c7c6363754462601"
+  }
+
+
+----------------------------------------------------
+
+// Adding a Comment
+URL: http://localhost:5000/api/v1/comment
+Method: POST
+Data:{
+    "Author": "6117ed976d463c047cdb847b",
+    "postID": "611802996a789310100926d3",
+    "text": "text comment3"
+}
+Response: {
+    "_id": "611d0551a43a083418270c42",
+    "Author": "6117ed976d463c047cdb847b",
+    "postID": "611802996a789310100926d3",
+    "text": "text comment3"
+}
+
+
+----------------------------------------------------
+
+// Deleting a Comment
+URL: http://localhost:5000/api/v1/comment/611802996a789310100926d3
+Method: Delete
+Data:{
+    "commentId": "611d0551a43a083418270c42"
+}
+Response: {
+    "success": true
+}
